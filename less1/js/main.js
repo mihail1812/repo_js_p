@@ -27,7 +27,7 @@ const renderProducts = (list) => {
 
 renderProducts(products);
 
-// ВТОРОЙ ВАРИАНТ РЕШЕНИЯ 
+// ВТОРОЙ ВАРИАНТ РЕШЕНИЯ ---
 
 
 /*
