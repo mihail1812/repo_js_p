@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin-left: 40px;">
+    <h1>БУРГЕРЫ</h1>
+    <div class="butt">
+        <h2>Выберите бургер:</h2>
+        <p><input class="check" type="radio" price= "50" value="20" name="1" checked> Маленький (50 рублей, 20 калорий)</p>
+        <p><input class="check" type="radio" price= "100" value="40" name="1"> Большой (100 рублей, 40 калорий)</p>
+        <br>
+        <h3>Выберите начинку:</h3>
+        <p><input class="check" type="radio" price= "10" value="20" name="2" checked> С сыром (+10 рублей, +20 калорий)</p>
+        <p><input class="check" type="radio" price= "20" value="5" name="2"> С салатом (+20 рублей, +5 калорий)</p>
+        <p><input class="check" type="radio" price= "15" value="10" name="2"> С картофелем (+15 рублей, +10 калорий)</p>
+        <br>
+        <h3>Выберите опции:</h3>
+        <p><input class="check" type="checkbox" price= "15" value="0"> посыпать приправой (+15 рублей, +0 калорий)</p>
+        <p><input class="check" type="checkbox" price= "20" value="5"> полить майонезом (+20 рублей, +5 калорий)</p>
+    </div>
+    <br>
+    <!-- <button class="butt">Посчитать стоимость и калорийность</button> -->
+    <br>
+    <br>
+    <div class="totalPrice"></div>
+    <div class="calorieContent"></div>
+
+    <script>
+        function addPrice (price, calories){
+            let sum = `Стоимость бургера составляет: ${price} рублей`;
+            let calori = `Калорийность бургера составляет: ${calories} калорий`;
+            document.querySelector('.totalPrice').innerHTML = sum;
+            document.querySelector('.calorieContent').innerHTML = calori;
+        }
+
+
+        function calc(){
+            let totalPrice = 0;
+            let calorieContent = 0;
+            let allOptions = document.querySelectorAll('.check');
+            allOptions.forEach(function(box){
+                if(box.checked){
+                    totalPrice = Number(box.attributes.price.value) + totalPrice;
+                    calorieContent = Number(box.value) + calorieContent;
+                }
+            })
+            addPrice(totalPrice, calorieContent);
+        }
+        calc();
+        let butt = document.querySelector('.butt');
+        butt.addEventListener('click', calc);
+
+        
+    </script>
+
+</body>
+</html>
