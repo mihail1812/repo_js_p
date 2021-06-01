@@ -5,6 +5,11 @@ const products = [
      {id: 4, title: 'Gamepad', price: 150},
 ];
 
+
+/*
+// ПЕРВЫЙ ВАРИАНТ РЕШЕНИЯ
+
+
 // Добавил значения по умолчанию для title и price
 const renderProduct = (title = 'someProduct', price = 'PRICE') => {
     return `<div class="product-item">
@@ -26,8 +31,10 @@ const renderProducts = (list) => {
 }
 
 renderProducts(products);
+*/
 
-// ВТОРОЙ ВАРИАНТ РЕШЕНИЯ 
+
+// ВТОРОЙ ВАРИАНТ РЕШЕНИЯ ---
 
 
 /*
@@ -49,3 +56,16 @@ function renderProducts (list){
 }
 renderProducts(products);
 */
+
+// ТРЕТИЙ ВАРИАНТ РЕШЕНИЯ
+function renderProducts (arr){
+    arr.forEach(function(productDiv){
+        document.querySelector('.products').insertAdjacentHTML("beforeend", `<div class="product-item">
+        <h3>${productDiv.title}</h3>
+        <p>${productDiv.price}</p>
+        <button class="by-btn">Добавить</button>
+      </div>`)
+    });
+}
+
+renderProducts(products);
